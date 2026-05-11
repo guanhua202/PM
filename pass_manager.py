@@ -68,7 +68,7 @@ def password_generator(en_up, en_low, special_chars):
     # Цикл генерации: повторяется, пока пароль не будет создан
     while gen_pass == "":
         # Показываем меню с текущими настройками
-        pass_gen_menu(password_options['pass_len'], password_options['en_up'], password_options['en_low'], password_options['special_chars'])
+        pass_gen_menu(password_options.setdefault('pass_len', 0), password_options.setdefault('en_up', False), password_options.setdefault('en_low', False), password_options.setdefault('special_chars', False))
 
         # Запрашиваем выбор пользователя
         options = int(input("Выберите опцию: "))
@@ -130,6 +130,7 @@ def password_generator(en_up, en_low, special_chars):
                 print("Длина пароля должна быть минимум 10 символов.")
                 print('---------------------------------------------')
                 input("Нажмите Enter для продолжения...")
+        
 
 # ---------- Точка входа в программу ----------
 # Выводим главное меню
